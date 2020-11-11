@@ -355,5 +355,3 @@ Enter this link as your EPG source and you are done!
 Note when you update your EPG in dropbox just drag and drop the new EPG in to the dropbox window - Don't delete the file. This will update the file instead and keep your link so the short link will still work <br>
 In Github you can delete the file and upload the new one. As long as it's in the same repository and folder with the same file name your short link will still work
 
-
-© SparkleSunshine 2020 - All rights reserved
