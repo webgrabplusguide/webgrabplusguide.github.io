@@ -1,4 +1,6 @@
 ## Welcome to my basic guide on how to use WebGrab+Plus
+<a href="https://imgur.com/wBnRUBr"><img src="https://i.imgur.com/wBnRUBrl.jpg" title="source: imgur.com" /></a>
+
 ### Disclaimer
 Before we begin please note I'm in no way affiliated with WebGrab+Plus or its team. I make no money etc from referrals and any questions, support or anything relating to the product should be directed through the offical WebGrab+Plus website. <br>
 This guides assumes you are using Windows. Although Linux should be the same, the paths to directories will be different.
