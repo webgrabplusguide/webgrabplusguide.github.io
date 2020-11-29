@@ -86,7 +86,7 @@ Now we move onto the bottom half of the config file.
 
 ```channels
         <channels>
-		<channel update="i" site="tvguide.co.uk" site_id="66" xmltv_id="BBC News">BBC News
+		<channel update="i" site="tvguide.co.uk" site_id="66" xmltv_id="BBC News">BBC News</channel>
         </channels>
 </settings>
 ```
