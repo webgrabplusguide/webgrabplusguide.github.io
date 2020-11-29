@@ -104,7 +104,7 @@ So if your playlist displays the channel name as UK BBC News your line would now
 
 ```channels2
         <channels>
-			<channel update="i" site="tvguide.co.uk" site_id="66" xmltv_id="UK BBC News">UK BBC News</channel></channel>
+		<channel update="i" site="tvguide.co.uk" site_id="66" xmltv_id="UK BBC News">UK BBC News
         </channels>
 ```
 
