@@ -158,7 +158,7 @@ In your config file place this line (You can rename your current config file Web
 
 ```dummy
 <channels>
-			<channel update="i" site="tvguide.com" site_id="33301" xmltv_id="srvID generation">srvID generation</channel>
+	<channel update="i" site="tvguide.com" site_id="33301" xmltv_id="srvID generation">srvID generation</channel>
 </channels>
 ```
 
@@ -300,7 +300,7 @@ Change https://url.com/ to the first part of the url where your image is located
 
 ```namelogo
         <channels>
-			<channel update="i" site="tvguide.co.uk" site_id="66" xmltv_id="BBC News">BBC News</channel></channel>
+		<channel update="i" site="tvguide.co.uk" site_id="66" xmltv_id="BBC News">BBC News</channel></channel>
         </channels>
 ```
 
