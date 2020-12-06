@@ -338,7 +338,7 @@ Everything will now be replaced in your EPG xml with what you have told the scri
 The next time you run WebGrap+Plus your ammended url will be replaced with the original so you will need to run the script each time you grab data assuming the original url doesn't change.
 
 ### Add channel logo line via script post grab
-If you pull the epg and it doesn't have a channel logo and you can't modify the sitini then you will not have a line to modify like in the example above but you can still add one in post grab via script. The process is the same as what is written above so read that first but the script will look like this
+If you pull the epg and it doesn't have a channel logo and you can't modify the sitini then you will not have a line to modify like in the example above but you can still add one in via a script. The process is the same as what is written above so read that first but the script will look like this.
 
 ``` add logo
 #!/bin/sh
@@ -348,6 +348,8 @@ sed -i '9a <icon src="https://NewUrl.com/NewLogo.png" />' guide.xml
 
 The number represents the line you want to add the channel logo line after. If you wanted it after line 20 then change 9a to 20a. <br>
 If you are adding multiple channel logos make sure you start with the largest line number first and work to the smallest. This is because if you do it the other way round the next line it will add will be wrong eg if you tell it to add a line after 1 and then after 4 then it will add the line after 1 so the logo line is position 2 and then everything that was under it is now on a line number 1 greater than what it was before. So make sure you work from the bottom up and you won't have this issue!
+
+You can mix adding or amending lines in the same script.
 
 ### Hosting your epg
 So now you have grabbed everything you wanted and you have your guide.xml or what ever you have called it and it is now time to host it. I recommend two choices. <br>
