@@ -338,7 +338,7 @@ Everything will now be replaced in your EPG xml with what you have told the scri
 The next time you run WebGrap+Plus your ammended url will be replaced with the original so you will need to run the script each time you grab data assuming the original url doesn't change.
 
 ### Add channel logo line via script post grab
-If you pull the epg and it doesn't haave a channel logo then you will not have a line to modify like in the example above but you can still add one in post grab via script. The process is the same as what is written above so read that first but the script will look like this
+If you pull the epg and it doesn't have a channel logo and you can't modify the sitini then you will not have a line to modify like in the example above but you can still add one in post grab via script. The process is the same as what is written above so read that first but the script will look like this
 
 ``` add logo
 #!/bin/sh
