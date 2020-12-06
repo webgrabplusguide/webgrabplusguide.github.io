@@ -340,7 +340,7 @@ The next time you run WebGrap+Plus your ammended url will be replaced with the o
 ### Add channel logo line via script post grab
 If you pull the epg and it doesn't have a channel logo and you can't modify the sitini then you will not have a line to modify like in the example above but you can still add one in via a script. The process is the same as what is written above so read that first but the script will look like this.
 
-``` add logo
+```addlogo
 #!/bin/sh
 cd /c/users/YourUserName/appdata/local/WebGrab+Plus
 sed -i '9a <icon src="https://NewUrl.com/NewLogo.png" />' guide.xml
