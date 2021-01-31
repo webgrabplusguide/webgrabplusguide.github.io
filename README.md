@@ -310,7 +310,10 @@ If you are adding multiple channel logos make sure you start with the largest li
 
 You can mix adding or amending lines in the same script.
 
-### Hosting your epg
+### Compress Your EPG
+It is a good idea to compress your EPG so the file size is smaller. You can do this using 7zip. You want to compress it using the gz file format so change the compression method in the drop down menu. 
+
+### Hosting your EPG
 So now you have grabbed everything you wanted and you have your guide.xml or what ever you have called it and it is now time to host it. I recommend two choices. <br>
 With either see how to link shorten at the end.
 
