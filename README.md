@@ -244,50 +244,9 @@ Note if you run WebGrab+Plus again anything you change in your xml file will be 
 The best way though is to set the siteini to automatically insert your channel logos when it grabs the EPG. <br>
 Depending on the coding of the siteini depends on how you can do this.
 
-For tvguide.com.ini find the following section:
-
-```addlogo
-* add flags according to airing attributes
-index_temp_5.modify {calculate(format=D0)|'index_temp_4' 1 and}
-index_temp_6.modify {addend('index_temp_5'=="1")| (live)}
-index_temp_5.modify {calculate(format=D0)|'index_temp_4' 2 and}
-index_temp_6.modify {addend('index_temp_5'=="2")| (repeat)}
-index_temp_5.modify {calculate(format=D0)|'index_temp_4' 4 and}
-index_temp_6.modify {addend('index_temp_5'=="4")| (new)}
-* next line adds * to new shows, Ttile * = new shows, Title = "not new", 2 places
-index_title.modify {addend('index_temp_5'=="4")| *}
-index_temp_5.modify {calculate(format=D0)|'index_temp_4' 8 and}
-index_temp_6.modify {addend('index_temp_5'=="8")| (cc)}
-end_scope
-```
-
-After end_scope add the following
-
-```addlogo2
-index_temp_9.modify {substring(type=regex)|'config_site_id' "Icon:([^,]*)"}
-index_urlchannellogo.modify {addstart('index_temp_9' not="")|https://url.com/'index_temp_9'}
-```
-
-Change https://url.com/ to the first part of the location of where your logo images are stored before the / in the address. <br>
-For example if one of your images is at the location https://mylogos.com/nbc.png then change it to https://mylogos.com/ <br>
-Everything after the / we will add to the config file. <br>
-Open your config file. <br>
-Find the channel you want to add the logo to <br>
-At the end of the site_id value add ,Icon: then the rest of the url after the / as in the example below:
-
-```editlogo3
-        <channels>
-	<channel update="i" site="tvguide.com" site_id="(srvID76433)Number:4,SourceId:11293,Icon:nbc.png" xmltv_id="NBC">NBC</channel>		
-        </channels>
-```
-
-Run WebGrab+Plus and it will automatically add your channel logo when it grabs the channel.
-
-
-However this does not work for all siteinis
-
-For example tvguide.co.uk.ini we have to do things a little different. <br>
-For this to work you need a direct link to the logo image and it must be named the same as the site_id value. <br>
+For example tvguide.co.uk.ini <br>
+For this to work you need a direct link to the logo image and it must be named the same as the site_id value. However if the site_id value has special characters once WebGrabPlus has finished use notepad++ to find and replace them with nothing effectively removing them. <br>
+E.G. If the site_id ends up being 123##456 remove the ## from your finished epg xml & name the png 123456.png <br>
 Open tvguide.co.uk.ini in Notepad++ <br>
 Find the following lines:
 
