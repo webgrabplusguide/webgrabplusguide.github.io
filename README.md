@@ -131,26 +131,36 @@ Open tvguide.com.ini with Notepad++
 Find the following section:
 
 ```provider
-**      #####  PROVIDER FILE CREATION (only to create the xxx-channel.xml file)
+***  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _
+**      #####  PROVIDER FILE CREATION BY ZIPCODE USA ONLY (only to create the xxx-channel.xml file)
 **
+* replace site_id="xxxx" with your zipcode
+* <channel update="i" site="tvguide.com" site_id="xxxx" xmltv_id="dummy">dummy</channel>
+*
 ** @auto_xml_provider_start
-*url_index{url|http://mobilelistings.tvguide.com/Listingsweb/ws/rest/serviceproviders/zipcode/|channel|?formattype=json}
-*url_index.headers {customheader=Accept-Encoding=gzip,deflate} *to speedup the downloading
-*index_site_id.scrub {regex||"Id"\s*:\s*([+-]?\d*)||}
-*index_site_channel.scrub {regex||"Name"\s*:\s*"([^"\\]*(?:\\.[^"\\]*)*)"||}
+*url_index {url|https://cmg-prod.apigee.net/v1/xapi/tvschedules/tvguide/serviceproviders/zipcode/|channel|/web}
+*subpage.format {list|null}
+*index_site_id.scrub {multi|"id": ||,|,}
+*index_site_channel.scrub {multi|"name": "||",|",}
+*index_site_id.modify {cleanup(removeduplicates link="index_site_channel")}
 ** @auto_xml_provider_end
 ```
 
 Remove the 1st * from every line starting ** @auto_xml_provider_start so it will now look like this:
 
 ```provider2
-**      #####  PROVIDER FILE CREATION (only to create the xxx-channel.xml file)
+***  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _
+**      #####  PROVIDER FILE CREATION BY ZIPCODE USA ONLY (only to create the xxx-channel.xml file)
 **
+* replace site_id="xxxx" with your zipcode
+* <channel update="i" site="tvguide.com" site_id="xxxx" xmltv_id="dummy">dummy</channel>
+*
 * @auto_xml_provider_start
-url_index{url|http://mobilelistings.tvguide.com/Listingsweb/ws/rest/serviceproviders/zipcode/|channel|?formattype=json}
-url_index.headers {customheader=Accept-Encoding=gzip,deflate} *to speedup the downloading
-index_site_id.scrub {regex||"Id"\s*:\s*([+-]?\d*)||}
-index_site_channel.scrub {regex||"Name"\s*:\s*"([^"\\]*(?:\\.[^"\\]*)*)"||}
+url_index {url|https://cmg-prod.apigee.net/v1/xapi/tvschedules/tvguide/serviceproviders/zipcode/|channel|/web}
+subpage.format {list|null}
+index_site_id.scrub {multi|"id": ||,|,}
+index_site_channel.scrub {multi|"name": "||",|",}
+index_site_id.modify {cleanup(removeduplicates link="index_site_channel")}
 * @auto_xml_provider_end
 ```
 
@@ -158,7 +168,7 @@ In your config file place this line (You can rename your current config file Web
 
 ```dummy
 <channels>
-	<channel update="i" site="tvguide.com" site_id="33301" xmltv_id="srvID generation">srvID generation</channel>
+	<channel update="i" site="tvguide.com" site_id="33301" xmltv_id="dummy">dummy</channel>
 </channels>
 ```
 
@@ -171,42 +181,44 @@ Go back to tvguide.com.ini and put all the * back from where you removed them. <
 Now find the following section:
 
 ```createchannels
-**      #####  CHANNEL FILE CREATION (only to create the xxx-channel.xml file)
+***  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _
+**      #####  CHANNEL FILE CREATION BY PROVIDER (only to create the xxx-channel.xml file)
 **
+*
+* use channel line from one of the provider files created above
+*
 ** @auto_xml_channel_start
-*url_index{url|http://mobilelistings.tvguide.com/Listingsweb/ws/rest/schedules/|channel|/start/|urldate|/duration/1?ChannelFields=Name%2CFullName%2CNumber%2CSourceId&ScheduleFields=&formattype=json&disableChannels=}
-*index_site_channel.scrub {regex||"FullName":"([^"]*)"[^}]*"SourceId":\d*||}
-*index_site_id.scrub {regex||"FullName":"[^"]*"[^}]*("Number":"[^"]*"[^}]*"SourceId":\d*)||}
-*scope.range {(channellist)|end}
-*index_site_id.modify {remove(type=regex)|("Sort"\s*:\s*\d*\s*,*)}
-*index_site_id.modify {remove|"}
-*index_site_id.modify {addstart|(srvID'config_site_id')} *add the config site_id, so, we can keep this siteini generic (no need for the user to edit it)
-*index_site_id.modify {cleanup(removeduplicates=equal,100 link="index_site_channel")}
-*replace in channels with [ ]
-*index_site_channel.modify {replace|)|]}
-*index_site_channel.modify {replace|(|[}
-*end_scope
+*url_index {url|https://cmg-prod.apigee.net/v1/xapi/tvschedules/tvguide/##SourceId##/web?start=|subpage|&duration=120}
+*subpage.format {list|'global_temp_9'}
+*index_site_id.scrub {multi|"sourceId": ||,|,}
+*index_site_channel.scrub {regex||"fullName":\s*"([^"]*",\n\s*"name":\s*"[^"]*",\n\s*"number":\s*"[^"]*)",||}
+*index_site_id.modify {addstart|'config_site_id'##}
+*index_site_channel.modify {replace(type=regex)|".,\\n\s*\"name\":\s*."| (}
+*index_site_channel.modify {replace(type=regex)|".,\\n\s*\"number\":\s*."|) [}
+*index_site_channel.modify {addend|]}
+*index_site_id.modify {cleanup(removeduplicates link="index_site_channel")}
 ** @auto_xml_channel_end
 ```
 
 Remove the star from all lines starting from ** @auto_xml_channel_start so it looks like this:
 
 ```createchannels2
-**      #####  CHANNEL FILE CREATION (only to create the xxx-channel.xml file)
+***  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _
+**      #####  CHANNEL FILE CREATION BY PROVIDER (only to create the xxx-channel.xml file)
 **
+*
+* use channel line from one of the provider files created above
+*
 * @auto_xml_channel_start
-url_index{url|http://mobilelistings.tvguide.com/Listingsweb/ws/rest/schedules/|channel|/start/|urldate|/duration/1?ChannelFields=Name%2CFullName%2CNumber%2CSourceId&ScheduleFields=&formattype=json&disableChannels=}
-index_site_channel.scrub {regex||"FullName":"([^"]*)"[^}]*"SourceId":\d*||}
-index_site_id.scrub {regex||"FullName":"[^"]*"[^}]*("Number":"[^"]*"[^}]*"SourceId":\d*)||}
-scope.range {(channellist)|end}
-index_site_id.modify {remove(type=regex)|("Sort"\s*:\s*\d*\s*,*)}
-index_site_id.modify {remove|"}
-index_site_id.modify {addstart|(srvID'config_site_id')} *add the config site_id, so, we can keep this siteini generic (no need for the user to edit it)
-index_site_id.modify {cleanup(removeduplicates=equal,100 link="index_site_channel")}
-replace in channels with [ ]
-index_site_channel.modify {replace|)|]}
-index_site_channel.modify {replace|(|[}
-end_scope
+url_index {url|https://cmg-prod.apigee.net/v1/xapi/tvschedules/tvguide/##SourceId##/web?start=|subpage|&duration=120}
+subpage.format {list|'global_temp_9'}
+index_site_id.scrub {multi|"sourceId": ||,|,}
+index_site_channel.scrub {regex||"fullName":\s*"([^"]*",\n\s*"name":\s*"[^"]*",\n\s*"number":\s*"[^"]*)",||}
+index_site_id.modify {addstart|'config_site_id'##}
+index_site_channel.modify {replace(type=regex)|".,\\n\s*\"name\":\s*."| (}
+index_site_channel.modify {replace(type=regex)|".,\\n\s*\"number\":\s*."|) [}
+index_site_channel.modify {addend|]}
+index_site_id.modify {cleanup(removeduplicates link="index_site_channel")}
 * @auto_xml_channel_end
 ```
 
@@ -214,7 +226,9 @@ Open tvguide.com.providers.xml in Notepad++ <br>
 Find the provider you want to create channels for and paste it into your config. For example.
 
 ```dish
-<channel update="i" site="tvguide.com" site_id="76429" xmltv_id="Dish Network with Local channels">Dish Network with Local channels</channel>
+        <channels>
+		<channel update="i" site="tvguide.com" site_id="9100008443" xmltv_id="Dish Network New York">Dish Network New York</channel>
+        </channels>
 ```
 
 Run WebGrab+Plus <br>
