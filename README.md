@@ -125,7 +125,7 @@ Move on to how to create more advanced configs for local channels and channel lo
 Some countries have local channels depending on your provider or location. For example in the USA, NBC has multiple local channels accross America that will broadcast different programs at different times during the day for syndicate shows and news. <br>
 Some siteinis allow you to create a channel list based on your location and provider.
 
-In this example we will use tvguide.com.ini in the Network folder. <br>
+In this example we will use tvguide.com.ini in the International folder. <br>
 Open tvguide.com.ini with Notepad++
 
 Find the following section:
