@@ -121,7 +121,7 @@ Once done your EPG will be outputted as guide.xml or what ever you have called i
 Move on to how to create more advanced configs for local channels and channel logos or skip to how to host the EPG file.
 
 
-### How to create a channel xml
+### How to create a channel list xml
 
 #### Old way for older unencrypted Siteini
 If the siteini is old an unencrypted it may use the old way of creating a channel list. 
