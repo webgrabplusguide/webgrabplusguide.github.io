@@ -122,7 +122,6 @@ Move on to how to create more advanced configs for local channels and channel lo
 
 
 ### How to create a channel list xml
-
 #### Old way for older unencrypted Siteini
 If the siteini is old and unencrypted it may use the old way of creating a channel list. 
 
@@ -203,6 +202,7 @@ You are now ready to grab channels from your created channel list.
 This method is available in evaluation builds of WebGrabPlus 
 
 Guide coming soon
+
 
 ### Channel Logos
 Some siteinis will grab channels automatically but others don't or you want to replace the logos with your own. There are several ways this can be done:
