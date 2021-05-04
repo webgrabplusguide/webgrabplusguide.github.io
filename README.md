@@ -124,7 +124,7 @@ Move on to how to create more advanced configs for local channels and channel lo
 ### How to create a channel list xml
 
 #### Old way for older unencrypted Siteini
-If the siteini is old an unencrypted it may use the old way of creating a channel list. 
+If the siteini is old and unencrypted it may use the old way of creating a channel list. 
 
 In this example we will use canalsat.fr.ini in the France folder. <br>
 Open canalsat.fr.ini with Notepad++ and find the following section:
@@ -167,13 +167,13 @@ In your config file place this line (You can rename your current config file Web
 
 Run WebGrab+Plus <br>
 The file canalsat.fr.channels.xml will be outputted containing all the channel data for you to grab from that provider. <br>
-Move canalsat.fr to siteini.user for safe keeping. <br>
+Move canalsat.fr.channels.xml to siteini.user for safe keeping. <br>
 Go back to canalsat.fr.ini and put the * back from all the lines you removed it from. <br>
 You are now ready to grab channels from your created channel list.
 
 
 #### Create channel list for older encrypted Siteini
-For this example we will use programy-tv.cz.ini from the Czech Republic section. 
+For this example we will use programy-tv.cz.ini in the Czech Republic folder. 
 
 Open up your config file
 
@@ -195,7 +195,7 @@ Add the follow line in the channel section
 
 Run WebGrab+Plus <br>
 The file programy-tv.cz.channels.xml will be outputted containing all the channel data for you to grab from that provider. <br>
-Move canalsat.fr to siteini.user for safe keeping. <br>
+Move programy-tv.cz.channels.xml to siteini.user for safe keeping. <br>
 Go back to your config file and change the "c" in the update section back to an "i"<br>
 You are now ready to grab channels from your created channel list.
 
