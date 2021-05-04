@@ -121,122 +121,88 @@ Once done your EPG will be outputted as guide.xml or what ever you have called i
 Move on to how to create more advanced configs for local channels and channel logos or skip to how to host the EPG file.
 
 
-### How to create a local channel xml
-Some countries have local channels depending on your provider or location. For example in the USA, NBC has multiple local channels accross America that will broadcast different programs at different times during the day for syndicate shows and news. <br>
-Some siteinis allow you to create a channel list based on your location and provider.
+### How to create a channel xml
 
-In this example we will use tvguide.com.ini in the International folder. <br>
-Open tvguide.com.ini with Notepad++
+## Old way for older unencrypted Siteini
+If the siteini is old an unencrypted it may use the old way of creating a channel list. 
 
-Find the following section:
+In this example we will use canalsat.fr.ini in the France folder. <br>
+Open canalsat.fr.ini with Notepad++ and find the following section:
 
 ```provider
-***  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _
-**      #####  PROVIDER FILE CREATION BY ZIPCODE USA ONLY (only to create the xxx-channel.xml file)
-**
-* replace site_id="xxxx" with your zipcode
-* <channel update="i" site="tvguide.com" site_id="xxxx" xmltv_id="dummy">dummy</channel>
-*
-** @auto_xml_provider_start
-*url_index {url|https://cmg-prod.apigee.net/v1/xapi/tvschedules/tvguide/serviceproviders/zipcode/|channel|/web}
-*subpage.format {list|null}
-*index_site_id.scrub {multi|"id": ||,|,}
-*index_site_channel.scrub {multi|"name": "||",|",}
-*index_site_id.modify {cleanup(removeduplicates link="index_site_channel")}
-** @auto_xml_provider_end
+**      #####  CHANNEL FILE CREATION (only to create the xxx-channel.xml file)
+**   
+** @auto_xml_channel_start
+*url_index {url|https://secure-webtv-static.canal-plus.com/metadata/cpfra/all/v2.2/globalchannels.json}
+*index_site_channel.scrub {multi|{"id":|"name":"|",|"type"}
+*index_site_id.scrub {multi|{"id":||,"|"type"}
+*scope.range {(channellist)|end}
+*index_site_id.modify {cleanup(removeduplicates=equal,100 link="index_site_channel")}
+*end_scope
+** @auto_xml_channel_end
 ```
 
-Remove the 1st * from every line starting ** @auto_xml_provider_start so it will now look like this:
+Remove the 1st * from every line starting ** @auto_xml_channel_start so it will now look like this:
 
 ```provider2
-***  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _
-**      #####  PROVIDER FILE CREATION BY ZIPCODE USA ONLY (only to create the xxx-channel.xml file)
-**
-* replace site_id="xxxx" with your zipcode
-* <channel update="i" site="tvguide.com" site_id="xxxx" xmltv_id="dummy">dummy</channel>
-*
-* @auto_xml_provider_start
-url_index {url|https://cmg-prod.apigee.net/v1/xapi/tvschedules/tvguide/serviceproviders/zipcode/|channel|/web}
-subpage.format {list|null}
-index_site_id.scrub {multi|"id": ||,|,}
-index_site_channel.scrub {multi|"name": "||",|",}
-index_site_id.modify {cleanup(removeduplicates link="index_site_channel")}
-* @auto_xml_provider_end
+**      #####  CHANNEL FILE CREATION (only to create the xxx-channel.xml file)
+**   
+* @auto_xml_channel_start
+url_index {url|https://secure-webtv-static.canal-plus.com/metadata/cpfra/all/v2.2/globalchannels.json}
+index_site_channel.scrub {multi|{"id":|"name":"|",|"type"}
+index_site_id.scrub {multi|{"id":||,"|"type"}
+scope.range {(channellist)|end}
+index_site_id.modify {cleanup(removeduplicates=equal,100 link="index_site_channel")}
+end_scope
+* @auto_xml_channel_end
 ```
 
 In your config file place this line (You can rename your current config file WebGrab++.configbackup.xml and then copy it and name it WebGrab++.config.xml and delete all the current channels you have configured - WebGrab+Plus will just run the config file named WebGrab++.config.xml)
 
 ```dummy
 <channels>
-	<channel update="i" site="tvguide.com" site_id="33301" xmltv_id="dummy">dummy</channel>
+	<channel update="i" site="canalsat.fr" site_id="dummy" xmltv_id="dummy">dummy</channel>
 </channels>
 ```
 
-Replace the numbers for the site_id value with the zip code you want to get channel data for. <br>
 Run WebGrab+Plus <br>
-A file called tvguide.com.channels.xml will be outputted in the WebGrab+Plus folder. <br>
-Rename this file tvguide.com.providers.xml
-
-Go back to tvguide.com.ini and put all the * back from where you removed them. <br>
-Now find the following section:
-
-```createchannels
-***  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _
-**      #####  CHANNEL FILE CREATION BY PROVIDER (only to create the xxx-channel.xml file)
-**
-*
-* use channel line from one of the provider files created above
-*
-** @auto_xml_channel_start
-*url_index {url|https://cmg-prod.apigee.net/v1/xapi/tvschedules/tvguide/##SourceId##/web?start=|subpage|&duration=120}
-*subpage.format {list|'global_temp_9'}
-*index_site_id.scrub {multi|"sourceId": ||,|,}
-*index_site_channel.scrub {regex||"fullName":\s*"([^"]*",\n\s*"name":\s*"[^"]*",\n\s*"number":\s*"[^"]*)",||}
-*index_site_id.modify {addstart|'config_site_id'##}
-*index_site_channel.modify {replace(type=regex)|".,\\n\s*\"name\":\s*."| (}
-*index_site_channel.modify {replace(type=regex)|".,\\n\s*\"number\":\s*."|) [}
-*index_site_channel.modify {addend|]}
-*index_site_id.modify {cleanup(removeduplicates link="index_site_channel")}
-** @auto_xml_channel_end
-```
-
-Remove the star from all lines starting from ** @auto_xml_channel_start so it looks like this:
-
-```createchannels2
-***  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _
-**      #####  CHANNEL FILE CREATION BY PROVIDER (only to create the xxx-channel.xml file)
-**
-*
-* use channel line from one of the provider files created above
-*
-* @auto_xml_channel_start
-url_index {url|https://cmg-prod.apigee.net/v1/xapi/tvschedules/tvguide/##SourceId##/web?start=|subpage|&duration=120}
-subpage.format {list|'global_temp_9'}
-index_site_id.scrub {multi|"sourceId": ||,|,}
-index_site_channel.scrub {regex||"fullName":\s*"([^"]*",\n\s*"name":\s*"[^"]*",\n\s*"number":\s*"[^"]*)",||}
-index_site_id.modify {addstart|'config_site_id'##}
-index_site_channel.modify {replace(type=regex)|".,\\n\s*\"name\":\s*."| (}
-index_site_channel.modify {replace(type=regex)|".,\\n\s*\"number\":\s*."|) [}
-index_site_channel.modify {addend|]}
-index_site_id.modify {cleanup(removeduplicates link="index_site_channel")}
-* @auto_xml_channel_end
-```
-
-Open tvguide.com.providers.xml in Notepad++ <br>
-Find the provider you want to create channels for and paste it into your config. For example.
-
-```dish
-        <channels>
-		<channel update="i" site="tvguide.com" site_id="9100008443" xmltv_id="Dish Network New York">Dish Network New York</channel>
-        </channels>
-```
-
-Run WebGrab+Plus <br>
-The file tvguide.com.channels.xml will be outputted containing all the channel data for you to grab from that provider. <br>
-Move both tvguide.com.channels.xml and tvguide.com.providers.xml to siteini.user for safe keeping. <br>
-Go back to tvguide.com.ini and put the * back from all the lines you removed it from. <br>
+The file canalsat.fr.channels.xml will be outputted containing all the channel data for you to grab from that provider. <br>
+Move canalsat.fr to siteini.user for safe keeping. <br>
+Go back to canalsat.fr.ini and put the * back from all the lines you removed it from. <br>
 You are now ready to grab channels from your created channel list.
 
+
+## Create channel list for older encrypted Siteini
+For this example we will use programy-tv.cz.ini from the Czech Republic section. 
+
+Open up your config file
+
+Change the "i" in the update part to a "c" 
+
+It will now look like this. 
+
+```updatechannel
+<update>c</update>
+```
+
+Add the follow line in the channel section
+
+```dummy2
+<channels>
+	<channel update="i" site="programy-tv.cz" site_id="dummy" xmltv_id="dummy">dummy</channel>
+</channels>
+```
+
+Run WebGrab+Plus <br>
+The file programy-tv.cz.channels.xml will be outputted containing all the channel data for you to grab from that provider. <br>
+Move canalsat.fr to siteini.user for safe keeping. <br>
+Go back to your config file and change the "c" in the update section back to an "i"<br>
+You are now ready to grab channels from your created channel list.
+
+## New way to create channel list for new encrypted Siteini
+This method is available in evaluation builds of WebGrabPlus 
+
+Guide coming soon
 
 ### Channel Logos
 Some siteinis will grab channels automatically but others don't or you want to replace the logos with your own. There are several ways this can be done:
