@@ -244,7 +244,7 @@ Change https://url.com/ to the first part of the url where your image is located
 ```
 
 If you wanted to add the logo to the above example your logo must be named 66.png - the same as the site_id value. <br>
-You must have a direct link to the logo so it will add 66.png to the first part of the url set in the siteini so it will become https://url.com/66.png <br>
+You must have a direct link to the logo so it will add 66.png to the end part of the url set in the siteini so it will become https://url.com/66.png <br>
 File storage sites normally don't give you a direct link and instead give you a shared link which will not work here. The best place to put the logo is in a folder on github and use the raw link address. This way you can get a direct link.
 
 ### Change channel logos on encrypted siteinis or post grab
