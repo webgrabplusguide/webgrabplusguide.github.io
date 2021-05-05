@@ -121,7 +121,7 @@ Once done your EPG will be outputted as guide.xml or what ever you have called i
 Move on to how to create more advanced configs for local channels and channel logos or skip to how to host the EPG file.
 
 
-### How to create a channel list xml
+### How to create or update a channel list xml
 #### Old way for older unencrypted Siteini
 If the siteini is old and unencrypted it may use the old way of creating a channel list. 
 
@@ -171,7 +171,7 @@ Go back to canalsat.fr.ini and put the * back from all the lines you removed it 
 You are now ready to grab channels from your created channel list.
 
 
-#### Create channel list for older encrypted Siteini
+#### Create channel list for most Siteini (encrypted or unencrypted) 
 For this example we will use programy-tv.cz.ini in the Czech Republic folder. 
 
 Open up your config file
