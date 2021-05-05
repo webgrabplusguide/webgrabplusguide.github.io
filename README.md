@@ -172,7 +172,7 @@ You are now ready to grab channels from your created channel list.
 
 
 #### Create channel list for most Siteini (encrypted or unencrypted) 
-For this example we will use programy-tv.cz.ini in the Czech Republic folder. 
+For this example we will use programy-tv.cz.ini in the Czech Republic folder. (note this is an encrypted siteini) 
 
 Open up your config file
 
