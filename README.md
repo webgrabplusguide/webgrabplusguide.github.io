@@ -261,9 +261,50 @@ Run WebGrabPlus <br>
 This will output a file called tvguide.com.channels.c4.xml containing all the channels for that provider you can then copy into your config file. <br>
 
 Change "c4" back to "i" as you update parameter <br>
-Copy any of the channel lines you want to grab into WebGrabPlus and run to star grabbing.
+Copy all the channels you want to grab into your config file and edit the names as required. <br>
+Run WebGrabPlus to start grabbing the channels.
 
 #### To create a channel list for USA 
+Add the following line to your config file (making sure you have removed all other channels first) but replace xxxx with the zip code of the area you want to grab channels for.
+
+```zipcode
+<channel update="i" site="tvguide.com" site_id="xxxx" xmltv_id="dummy">dummy</channel>
+```
+
+In this example we will use 10001 for New York.
+
+```zipcode
+<channel update="i" site="tvguide.com" site_id="10001" xmltv_id="dummy">dummy</channel>
+```
+
+Change the update parameter to "c3" as shown below.
+
+```c3
+<update>c3</update>
+```
+
+Run WebGrabPlus <br>
+This will output a file called tvguide.com.channels.c3.xml containing all the providers for that zip code.
+
+Open tvguide.com.channels.c3.xml and copy the provider you want to use into your config file (delete the zip code line we copied in previously first). <br>
+In this example we will use Dish Network New York.
+
+```dish
+<channel update="i" site="tvguide.com" site_id="9100008443" xmltv_id="Dish Network New York">Dish Network New York</channel>
+```
+
+Change the update parameter from "c3" to "c4" as shown below.
+
+```c4again
+<update>c4</update>
+```
+
+Run WebGrabPlus <br>
+This will output a file called tvguide.com.channels.c4.xml containing all the channels for that provider.
+
+Change your update parameter from "c4" back to "i" <br>
+Copy all the channels you want to grab into your config file and edit the names as required. <br>
+Run WebGrabPlus to start grabbing the channels.
 
 
 ### Channel Logos
