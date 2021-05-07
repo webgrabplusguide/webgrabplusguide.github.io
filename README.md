@@ -313,7 +313,7 @@ In order to grab from a different country/provider/zip code, copy and rename tvg
 
 Repeat everything above in order to create your channel list but where you see site="tvguide.com" it will now be site="tvguide1.com"
 
-You will need a different named siteini for every different country/provider/zip code you want to use with the tvguide siteini. Note each different siteini will count towards your siteini limit on your licence.
+You will need a different named siteini for every different country/provider/zip code you want to use with the tvguide siteini. Note each differently named siteini will count towards your siteini limit on your licence.
 
 ### Channel Logos
 Some siteinis will grab channels automatically but others don't or you want to replace the logos with your own. There are several ways this can be done:
