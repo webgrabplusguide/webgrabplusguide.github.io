@@ -85,9 +85,7 @@ i - Incremental update. Only changes will be grabbed. E.G changes in schedule fr
 Now we move onto the bottom half of the config file.
 
 ```channels
-        <channels>
 		<channel update="i" site="tvguide.co.uk" site_id="66" xmltv_id="BBC News">BBC News</channel>
-        </channels>
 </settings>
 ```
 
@@ -103,9 +101,8 @@ So after xmltv_id=" make sure the name of the channel matches what is displayed 
 So if your playlist displays the channel name as UK BBC News your line would now be:
 
 ```channels2
-        <channels>
 		<channel update="i" site="tvguide.co.uk" site_id="66" xmltv_id="UK BBC News">UK BBC News</channel>
-        </channels>
+        </settings>
 ```
 
 Keep adding channels above the </settings> tag until you have all the channels you need. Refer to the license table for any limitations to the numbers you can grab and from how manny different siteinis.
@@ -159,9 +156,7 @@ end_scope
 In your config file place this line (You can rename your current config file WebGrab++.configbackup.xml and then copy it and name it WebGrab++.config.xml and delete all the current channels you have configured - WebGrab+Plus will just run the config file named WebGrab++.config.xml)
 
 ```dummy
-<channels>
 	<channel update="i" site="canalsat.fr" site_id="dummy" xmltv_id="dummy">dummy</channel>
-</channels>
 ```
 
 Run WebGrab+Plus <br>
@@ -187,9 +182,7 @@ It will now look like this.
 Add the follow line in the channel section
 
 ```dummy2
-<channels>
 	<channel update="i" site="programy-tv.cz" site_id="dummy" xmltv_id="dummy">dummy</channel>
-</channels>
 ```
 
 Run WebGrab+Plus <br>
@@ -271,9 +264,7 @@ index_urlchannellogo.modify {addstart|https://url.com/'index_variable_element'.p
 Change https://url.com/ to the first part of the url where your image is located
 
 ```namelogo
-        <channels>
 		<channel update="i" site="tvguide.co.uk" site_id="66" xmltv_id="BBC News">BBC News</channel></channel>
-        </channels>
 ```
 
 If you wanted to add the logo to the above example your logo must be named 66.png - the same as the site_id value. <br>
