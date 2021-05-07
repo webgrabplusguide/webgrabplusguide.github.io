@@ -306,6 +306,13 @@ Change your update parameter from "c4" back to "i" <br>
 Copy all the channels you want to grab into your config file and edit the names as required. <br>
 Run WebGrabPlus to start grabbing the channels.
 
+#### If you need to grab channels from more than one country/provider/zip code
+This siteini can only grab channels from the same country, provider or zip code when you remove the * to allow the index to remain to speed up grabbing. <br>
+In order to grab from a different country/provider/zip code, copy and rename tvguide.com.ini eg copy and rename it tvguide1.com.ini
+
+Repeat everything above in order to create your channel list but where you see site="tvguide.com" it will now be site="tvguide1.com"
+
+You will need a different named siteini for every different country/provider/zip code you want to use with the tvguide siteini. Note each different siteini will count towards your siteini limit on your licence.
 
 ### Channel Logos
 Some siteinis will grab channels automatically but others don't or you want to replace the logos with your own. There are several ways this can be done:
