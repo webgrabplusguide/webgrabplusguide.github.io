@@ -199,9 +199,42 @@ Go back to your config file and change the "c" in the update section back to an 
 You are now ready to grab channels from your created channel list.
 
 #### New way to create channel list for new encrypted Siteini
-This method is available in evaluation builds of WebGrabPlus 
+This method is available in builds starting from V3.1.7.1 of WebGrabPlus 
 
-Guide coming soon
+In this example we will be using tvguide.com which is found in the international folder.
+
+Open tvguide.com.ini with notepad++ <br>
+Uncomment the following line by removing the first * - This will keep the index in order to speed up grabbing however you will only be able to use one zip code/provider. We will cover if you need to to grab channels from multiple zip codes/providers with this siteini later.
+
+Before
+```uncomment
+*site {keepindexpage} *  enable if using a single provider,speeds up downloading
+```
+
+After
+```uncomment2
+site {keepindexpage} *  enable if using a single provider,speeds up downloading
+```
+
+Copy and rename your main config file to something else for safe keeping as we need a config file with no channels in it in order to create the channel list. <br>
+Open your config file WebGrab++.config.xml
+
+Change the "i" in the update section to "c1" as shown below
+
+```c1
+<update>c1</update>
+```
+
+Add the following line to the channel section
+
+```country
+<channel update="i" site="tvguide.com" site_id="" xmltv_id="dummy">dummy</channel>
+```
+
+Run WebGrabPlus <br>
+This will output a file called tvguide.com.channels.c1.xml which will contain a list of available countries you can use with this siteini
+
+
 
 
 ### Channel Logos
