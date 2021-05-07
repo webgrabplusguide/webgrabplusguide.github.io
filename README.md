@@ -268,6 +268,8 @@ Run WebGrabPlus to start grabbing the channels.
 Copy and rename your main config file to something else for safe keeping as we need a config file with no channels in it in order to create the channel list. <br>
 Open your config file WebGrab++.config.xml
 
+Copy the following line into your config file replacing xxxx with the zip code you want to get providers for.
+
 ```zipcode
 <channel update="i" site="tvguide.com" site_id="xxxx" xmltv_id="dummy">dummy</channel>
 ```
