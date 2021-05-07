@@ -194,6 +194,7 @@ You are now ready to grab channels from your created channel list.
 #### New way to create channel list for new encrypted Siteini
 This method is available in builds starting from V3.1.7.1 of WebGrabPlus 
 
+#### TVguide.com example - Start here
 In this example we will be using tvguide.com which is found in the international folder.
 
 Open tvguide.com.ini with notepad++ <br>
@@ -209,6 +210,7 @@ After
 site {keepindexpage} *  enable if using a single provider,speeds up downloading
 ```
 
+#### Create channel list (Excluding USA)
 Copy and rename your main config file to something else for safe keeping as we need a config file with no channels in it in order to create the channel list. <br>
 Open your config file WebGrab++.config.xml
 
@@ -218,6 +220,8 @@ Change the "i" in the update section to "c1" as shown below
 <update>c1</update>
 ```
 
+This siteini can grab channels from multiple countries so we need to create a country list to choose from. Note if you only want USA skip this part and go straight to the USA section of this example.
+
 Add the following line to the channel section
 
 ```country
@@ -225,9 +229,41 @@ Add the following line to the channel section
 ```
 
 Run WebGrabPlus <br>
-This will output a file called tvguide.com.channels.c1.xml which will contain a list of available countries you can use with this siteini
+This will output a file called tvguide.com.channels.c1.xml which will contain a list of available countries you can use with this siteini.
 
+Open tvguide.com.channels.c1.xml with notepad++ <br>
+Copy the line for the country you want into your config file (delete the previous line we copied in first) . In this example we will use Argentina.
 
+```argentinna
+<channel update="i" site="tvguide.com" site_id="ARG" xmltv_id="Argentina">Argentina</channel>
+```
+
+Change "c1" in your update parameter to "c2"
+```c2
+<update>c2</update>
+```
+
+Run WebGrabPlus <br>
+This will output a file called tvguide.com.channels.c2.xml containng all the providers available for Argentina this siteini can grab.
+
+Select the provider you want and copy it into your config file (again delete the previous country line we copied there first). In this example we will use DirecTV Argentina Argentina.
+
+```directvargentina
+<channel update="i" site="tvguide.com" site_id="9133006468" xmltv_id="DirecTV Argentina Argentina">DirecTV Argentina Argentina</channel>
+```
+
+Change "c2" in your update parameter to "c4"
+```c4
+<update>c4</update>
+```
+
+Run WebGrabPlus <br>
+This will output a file called tvguide.com.channels.c4.xml containing all the channels for that provider you can then copy into your config file. <br>
+
+Change "c4" back to "i" as you update parameter <br>
+Copy any of the channel lines you want to grab into WebGrabPlus and run to star grabbing.
+
+#### To create a channel list for USA 
 
 
 ### Channel Logos
