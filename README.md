@@ -198,7 +198,7 @@ This method is available in builds starting from V3.1.7.1 of WebGrabPlus
 In this example we will be using tvguide.com which is found in the international folder.
 
 Open tvguide.com.ini with notepad++ <br>
-Uncomment the following line by removing the first * - This will keep the index in order to speed up grabbing however you will only be able to use one zip code/provider. We will cover if you need to to grab channels from multiple zip codes/providers with this siteini later.
+Uncomment the following line by removing the first * - This will keep the index in order to speed up grabbing however you will only be able to use one country/provider/zip code. We will cover if you need to to grab channels from multiple countries/providers/zip codes with this siteini later.
 
 Before
 ```uncomment
