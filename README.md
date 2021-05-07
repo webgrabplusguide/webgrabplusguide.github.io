@@ -232,7 +232,7 @@ Run WebGrabPlus <br>
 This will output a file called tvguide.com.channels.c1.xml which will contain a list of available countries you can use with this siteini.
 
 Open tvguide.com.channels.c1.xml with notepad++ <br>
-Copy the line for the country you want into your config file (delete the previous line we copied in first) . In this example we will use Argentina.
+Copy the line for the country you want into your config file (delete the previous line we copied in first). In this example we will use Argentina.
 
 ```argentinna
 <channel update="i" site="tvguide.com" site_id="ARG" xmltv_id="Argentina">Argentina</channel>
