@@ -265,7 +265,8 @@ Copy all the channels you want to grab into your config file and edit the names 
 Run WebGrabPlus to start grabbing the channels.
 
 #### To create a channel list for USA 
-Add the following line to your config file (making sure you have removed all other channels first) but replace xxxx with the zip code of the area you want to grab channels for.
+Copy and rename your main config file to something else for safe keeping as we need a config file with no channels in it in order to create the channel list. <br>
+Open your config file WebGrab++.config.xml
 
 ```zipcode
 <channel update="i" site="tvguide.com" site_id="xxxx" xmltv_id="dummy">dummy</channel>
