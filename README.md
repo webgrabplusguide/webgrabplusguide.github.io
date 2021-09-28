@@ -197,18 +197,7 @@ This method is available in builds starting from V3.1.7.1 of WebGrabPlus
 #### TVguide.com example - Start here
 In this example we will be using tvguide.com which is found in the international folder.
 
-Open tvguide.com.ini with notepad++ <br>
-Uncomment the following line by removing the first * - This will keep the index in order to speed up grabbing however you will only be able to use one country/provider/zip code. We will cover if you need to to grab channels from multiple countries/providers/zip codes with this siteini later.
-
-Before
-```uncomment
-*site {keepindexpage} *  enable if using a single provider,speeds up downloading
-```
-
-After
-```uncomment2
-site {keepindexpage} *  enable if using a single provider,speeds up downloading
-```
+This siteini only allows you to grab channels from one provider/zip code. We will cover if you need to grab channel data from multiple providers/zip codes using this siteini later in this guide.
 
 #### Create channel list (Excluding USA)
 Copy and rename your main config file to something else for safe keeping as we need a config file with no channels in it in order to create the channel list. <br>
@@ -310,7 +299,7 @@ Copy all the channels you want to grab into your config file and edit the names 
 Run WebGrabPlus to start grabbing the channels.
 
 #### If you need to grab channels from more than one country/provider/zip code
-This siteini can only grab channels from the same country, provider or zip code when you remove the * to allow the index to remain to speed up grabbing. <br>
+This siteini can only grab channels from the same country, provider or zip code<br>
 In order to grab from a different country/provider/zip code, copy and rename tvguide.com.ini eg copy and rename it tvguide1.com.ini
 
 Repeat everything above in order to create your channel list but where you see site="tvguide.com" it will now be site="tvguide1.com"
