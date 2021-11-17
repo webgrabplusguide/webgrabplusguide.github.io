@@ -6,7 +6,7 @@ This guides assumes you are using Windows. Although Linux should be the same, th
 
 ### Buy me a coffee
 If this guide has helped you and you'd like to donate or buy me a coffee you can do so here
-https://www.buymeacoffee.com/sparklesunshine
+<a href="https://www.buymeacoffee.com/sparklesunshine">https://www.buymeacoffee.com/sparklesunshine</a>
 
 ### Download & install WebGrab+Plus
 Go to <a href="http://www.webgrabplus.com">http://www.webgrabplus.com</a> and download the latest version of WebGrab+Plus. Note that there maybe a beta version in the news and updates section on the main page which is newer than the current stable version. Read the notes to see any changes. <br>
