@@ -4,9 +4,9 @@
 Before we begin please note I'm in no way affiliated with WebGrab+Plus or its team. I make no money etc from referrals and any questions, support or anything relating to the product should be directed through the offical WebGrab+Plus website. <br>
 This guides assumes you are using Windows. Although Linux should be the same, the paths to directories will be different.
 
-### Reddit Discussion
-If you would like to join the Reddit group to discuss EPG grabbing or post your own scripts etc please go to
-<a href="https://www.reddit.com/r/WebGrabPlus">https://www.reddit.com/r/WebGrabPlus</a>
+### Buy me a coffee
+If this guide has helped you and you'd like to donate or buy me a coffee you can do so here
+https://www.buymeacoffee.com/sparklesunshine
 
 ### Download & install WebGrab+Plus
 Go to <a href="http://www.webgrabplus.com">http://www.webgrabplus.com</a> and download the latest version of WebGrab+Plus. Note that there maybe a beta version in the news and updates section on the main page which is newer than the current stable version. Read the notes to see any changes. <br>
