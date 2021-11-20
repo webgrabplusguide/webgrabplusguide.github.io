@@ -4,8 +4,9 @@
 Before we begin please note I'm in no way affiliated with WebGrab+Plus or its team. I make no money etc from referrals and any questions, support or anything relating to the product should be directed through the offical WebGrab+Plus website. <br>
 This guides assumes you are using Windows. Although Linux should be the same, the paths to directories will be different.
 
-### Buy me a coffee
-If this guide has helped you and you'd like to donate or buy me a coffee you can do so here
+### Buy me a coffee & Discord Support
+If this guide has helped you and you'd like to donate or buy me a coffee you can do so on the link below.<br>
+You will also find the link to the discord server where supporters can request help in building a config in the epg-talks channel
 <a href="https://www.buymeacoffee.com/sparklesunshine">https://www.buymeacoffee.com/sparklesunshine</a>
 
 ### Download & install WebGrab+Plus
