@@ -415,3 +415,4 @@ In Github you can delete the file and upload the new one. As long as it's in the
 
 ### Need any help or would just like to donate to say thanks
 Please see my Buy Me A Coffee page where can find the link to the discord server. If this guide has been useful to you please consider donating which helps support my time in writing guides and if you need any help please message me SparkleSunshine in the discord server in the epg-talks channel. 
+<a href="https://www.buymeacoffee.com/sparklesunshine">https://www.buymeacoffee.com/sparklesunshine</a>
