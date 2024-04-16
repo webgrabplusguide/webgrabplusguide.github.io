@@ -4,11 +4,6 @@
 Before we begin please note I'm in no way affiliated with WebGrab+Plus or its team. I make no money etc from referrals and any questions, support or anything relating to the product should be directed through the offical WebGrab+Plus website. <br>
 This guides assumes you are using Windows. Although Linux should be the same, the paths to directories will be different.
 
-### Buy me a coffee & Discord Support
-If this guide has helped you and you'd like to donate or buy me a coffee you can do so on the link below.<br>
-You will also find the link to the discord server where supporters can request help in building a config in the epg-talks channel
-<a href="https://www.buymeacoffee.com/sparklesunshine">https://www.buymeacoffee.com/sparklesunshine</a>
-
 ### Download & install WebGrab+Plus
 Go to <a href="http://www.webgrabplus.com">http://www.webgrabplus.com</a> and download the latest version of WebGrab+Plus. Note that there maybe a beta version in the news and updates section on the main page which is newer than the current stable version. Read the notes to see any changes. <br>
 Install the software and the siteini pack. If you choose not to download the siteini pack you can download it later or manually download it from the website. This is also the case if you wish to update the pack at a later date. The siteini pack contains all the providers you can grab your epg from. The default location of the pack should be C:\Users\YourUserName\AppData\Local\WebGrab+Plus\siteini.pack
