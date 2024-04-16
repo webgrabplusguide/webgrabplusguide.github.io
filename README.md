@@ -3,6 +3,7 @@
 ### Disclaimer
 Before we begin please note I'm in no way affiliated with WebGrab+Plus or its team. I make no money etc from referrals and any questions, support or anything relating to the product should be directed through the offical WebGrab+Plus website. <br>
 This guides assumes you are using Windows. Although Linux should be the same, the paths to directories will be different.
+This guide hasn't been updated since written and maybe out of date. Use as a general guide but look for updated documentaion on WebGrab+Plus website.
 
 ### Download & install WebGrab+Plus
 Go to <a href="http://www.webgrabplus.com">http://www.webgrabplus.com</a> and download the latest version of WebGrab+Plus. Note that there maybe a beta version in the news and updates section on the main page which is newer than the current stable version. Read the notes to see any changes. <br>
@@ -407,7 +408,3 @@ Enter this link as your EPG source and you are done!
 
 Note when you update your EPG in dropbox just drag and drop the new EPG in to the dropbox window - Don't delete the file. This will update the file instead and keep your link so the short link will still work <br>
 In Github you can delete the file and upload the new one. As long as it's in the same repository and folder with the same file name your short link will still work
-
-### Need any help or would just like to donate to say thanks
-Please see my Buy Me A Coffee page where can find the link to the discord server. If this guide has been useful to you please consider donating which helps support my time in writing guides and if you need any help please message me SparkleSunshine in the discord server in the epg-talks channel. 
-<a href="https://www.buymeacoffee.com/sparklesunshine">https://www.buymeacoffee.com/sparklesunshine</a>
